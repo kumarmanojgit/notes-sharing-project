@@ -8,17 +8,28 @@ const Home = () => {
   const [searchParams] = useSearchParams(); //useSearchParams hook
   const pastId = searchParams.get("pasteId");
   return (
-    <div className="flex flex-row gap-7">
-      <input
-        className="p-2 rounded-2xl mt-2"
-        type="text"
-        placeholder="Enter your paste Name!"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <button className="p-2 rounded-2xl mt-2 text-white">
-        {pastId ? "Update" : "Create"}
-      </button>
+    <div>
+      <div className="flex flex-row gap-7 place-content-between">
+        <input
+          className="p-2 rounded-2xl mt-2 w-[60%] pl-4"
+          type="text"
+          placeholder="Enter your paste Name!"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button className="p-1 rounded-2xl mt-2 text-white">
+          {pastId ? "Update" : "Create"}
+        </button>
+      </div>
+      <div className="mt-8">
+        <textarea
+          className="rounded-2xl mt-4 min-w-[500px] pl-4"
+          value={value}
+          placeholder="Enter content"
+          onChange={(e) => setValue(e.target.value)}
+          rows={20}
+        />
+      </div>
     </div>
   );
 };
